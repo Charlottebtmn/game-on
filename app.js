@@ -74,7 +74,7 @@ passport.use('local-signup', new LocalStrategy(
                 return next(null, false);
             } else {
                 // Destructure the body
-                const { username, email, description, password } = req.body;
+                const { username, email, description, password, imgUrl, _boardGame, type } = req.body;
                 const hashPass = bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
                 const newUser = new User({
                   email,
