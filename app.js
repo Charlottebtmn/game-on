@@ -24,7 +24,6 @@ mongoose.connect('mongodb://localhost/game-on');
 var app = express();
 
 //setting up routes
-app.use('/', authRoutes);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -61,18 +60,23 @@ passport.deserializeUser((id, cb) => {
 });
 
 passport.use('local-signup', new LocalStrategy(
-  { passReqToCallback: true },
-  (req, username, password, next) => {
+  {
+    usernameField: 'email',
+    passReqToCallback: true
+  },
+  (req, email, password, next) => {
+    console.log("bug 1");
     // To avoid race conditions
     process.nextTick(() => {
         User.findOne({
-            'username': username
+            email
         }, (err, user) => {
             if (err){ return next(err); }
 
             if (user) {
                 return next(null, false);
             } else {
+                console.log("CA A BUGUE");
                 // Destructure the body
                 const { username, email, description, password, imgUrl, _boardGame, type } = req.body;
                 const hashPass = bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
@@ -95,13 +99,15 @@ passport.use('local-signup', new LocalStrategy(
     });
 }));
 
-passport.use('local-login', new LocalStrategy((username, password, next) => {
-  User.findOne({ username }, (err, user) => {
+passport.use('local-login', new LocalStrategy({
+    usernameField: 'email',
+  },(email, password, next) => {
+  User.findOne({ email }, (err, user) => {
     if (err) {
       return next(err);
     }
     if (!user) {
-      return next(null, false, { message: "Incorrect username" });
+      return next(null, false, { message: "Incorrect email" });
     }
     if (!bcrypt.compareSync(password, user.password)) {
       return next(null, false, { message: "Incorrect password" });
@@ -116,6 +122,8 @@ app.use(passport.session());
 
 app.use('/', index);
 app.use('/users', users);
+app.use('/', authRoutes);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
