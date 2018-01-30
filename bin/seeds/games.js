@@ -4,7 +4,7 @@ mongoose.connect('mongodb://localhost/game-on', {
   useMongoClient: true
 });
 
-const Game = require ('../models/game.js');
+const Game = require ('../../models/game.js');
 
 let gameData = [
   {

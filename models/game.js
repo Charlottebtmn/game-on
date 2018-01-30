@@ -35,10 +35,10 @@ const GameSchema = new Schema({
     required: true,
     default: 0
   },
-  timestamps: {
-    createdAt: "created_at",
-    updatedAt: "updated_at"
-  }
+  // timestamps: {
+  //   createdAt: "created_at",
+  //   updatedAt: "updated_at"
+  // }
 });
 
 module.exports = mongoose.model('Game', GameSchema);

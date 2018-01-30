@@ -29,7 +29,7 @@ const BoardgameSchema = new Schema({
     type: Number,
   },
   duration: {
-    type: Number,
+    type: String,
   },
   // timestamps: {
   //   createdAt: "created_at",
