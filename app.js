@@ -77,10 +77,13 @@ passport.use('local-signup', new LocalStrategy(
                 const { username, email, description, password } = req.body;
                 const hashPass = bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
                 const newUser = new User({
-                  username,
                   email,
+                  username,
+                  password: hashPass,
                   description,
-                  password: hashPass
+                  imgUrl,
+                  _boardGame,
+                  type,
                 });
 
                 newUser.save((err) => {
