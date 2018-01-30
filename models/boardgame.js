@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const User = require('./user');
+const Types = require('./type');
 
-const GameSchema = new Schema({
+const BoardgameSchema = new Schema({
   title: {
     type: String,
     required: true
@@ -16,11 +17,10 @@ const GameSchema = new Schema({
     enum: Types,
     required: true
   },
-  adress: {
-    type: {
-      type: String
-    },
-    coordinates: [Number],
+  _owner: {
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+    required: true
   },
   timestamps: {
     createdAt: "created_at",
@@ -28,4 +28,4 @@ const GameSchema = new Schema({
   }
 });
 
-module.exports = mongoose.model('Game', GameSchema);
+module.exports = mongoose.model('Boardgame', BoardgameSchema);
