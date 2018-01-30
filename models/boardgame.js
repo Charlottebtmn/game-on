@@ -14,27 +14,27 @@ const BoardgameSchema = new Schema({
   },
   category: {
     type: String,
-    enum: Types,
+    enum: [],
     required: true
   },
   _owner: {
-    type: Schema.User.ObjectId,
+    type: Schema.Types.ObjectId,
     ref: 'User',
     // required: true
   },
   minPlayer: {
-    type: Integer,
+    type: Number,
   },
   maxPlayer: {
-    type: Integer,
+    type: Number,
   },
   duration: {
-    type: Integer,
+    type: Number,
   },
-  timestamps: {
-    createdAt: "created_at",
-    updatedAt: "updated_at"
-  }
+  // timestamps: {
+  //   createdAt: "created_at",
+  //   updatedAt: "updated_at"
+  // }
 });
 
 module.exports = mongoose.model('Boardgame', BoardgameSchema);

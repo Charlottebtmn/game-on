@@ -13,8 +13,8 @@ const GameSchema = new Schema({
     required: true
   },
   _boardgame: {
-    type: Schema.BoardGame.ObjectId,
-    ref: 'Boardgame'
+    type: Schema.Types.ObjectId,
+    ref: 'BoardGame'
   },
   adress: {
     type: {
@@ -26,9 +26,14 @@ const GameSchema = new Schema({
     type: String, // string?
     required: true
   },
-  players: {
-    type: Integer,
+  players: [{
+    type: Schema.Types.ObjectId,
+    ref: 'User'
+  }],
+  nbplayers: {
+    type: Number,
     required: true,
+    default: 0
   },
   timestamps: {
     createdAt: "created_at",

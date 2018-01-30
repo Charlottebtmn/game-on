@@ -13,8 +13,8 @@ const userSchema = new Schema({
   },
   // boardgames owned
   _boardgame: [{
-    type: Schema.BoardGame.ObjectId,
-    ref: 'Boardgame'
+    type: Schema.Types.ObjectId,
+    ref: 'BoardGame'
   }],
   // user belongs to X team 
   // _team: {
@@ -27,11 +27,10 @@ const userSchema = new Schema({
     enum: ['Luck', 'Strategy', 'Others'],
     required: true
   }],
-}, {
-  timestamps: {
-    createdAt: "created_at",
-    updatedAt: "updated_at"
-  }
+  // timestamps: {
+  //   createdAt: "created_at",
+  //   updatedAt: "updated_at"
+  // }
 });
 
 const User = mongoose.model('User', userSchema);
