@@ -20,6 +20,11 @@ const userSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'Team'
   },
+  // types of games  
+  _type: {
+    type: Schema.Types.ObjectId,
+    ref: 'Types'
+  },
 }, {
   timestamps: {
     createdAt: "created_at",
