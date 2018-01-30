@@ -1,8 +1,7 @@
-// models/campaign.js
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const User = require('./user');
-// const Types = require('.type');
+const Types = require('./type');
 
 const GameSchema = new Schema({
   title: {
@@ -13,11 +12,11 @@ const GameSchema = new Schema({
     type: String,
     required: true
   },
-  // category: {
-  //   type: String,
-  //   enum: Types,
-  //   required: true
-  // },
+  category: {
+    type: String,
+    enum: Types,
+    required: true
+  },
   _owner: {
     type: Schema.Types.ObjectId,
     ref: 'User',
