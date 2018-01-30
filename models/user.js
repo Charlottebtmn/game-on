@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const BoardGame = require('./boardgame');
 
 const userSchema = new Schema({
   email: String,
@@ -10,21 +11,22 @@ const userSchema = new Schema({
     type: String,
     default: "https://placeholdit.imgix.net/~text?txtsize=33&txt=250%C3%97250&w=250&h=250"
   },
-  // games owned
-  _game: {
-    type: Schema.Types.ObjectId,
-    ref: 'Game'
-  },
+  // boardgames owned
+  _boardgame: [{
+    type: Schema.BoardGame.ObjectId,
+    ref: 'Boardgame'
+  }],
   // user belongs to X team 
-  _team: {
-    type: Schema.Types.ObjectId,
-    ref: 'Team'
-  },
+  // _team: {
+  //   type: Schema.Types.ObjectId,
+  //   ref: 'Team'
+  // },
   // types of games  
-  _type: {
-    type: Schema.Types.ObjectId,
-    ref: 'Types'
-  },
+  type: [{
+    type: String,
+    enum: ['Luck', 'Strategy', 'Others'],
+    required: true
+  }],
 }, {
   timestamps: {
     createdAt: "created_at",
