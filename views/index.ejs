@@ -6,19 +6,27 @@
     </div>
   </div>
 </div>
-
-<div class="campaign-row row">
-    <h3 class="text-center">YOu can join one of these games</h3>
-    <% campaigns.forEach((game) => { %>
-      <div class="col-sm-3 home-campaign-box">
-        <img src="<%= campaign.image %>">
-        <div class="campaign-info-wrapper">
-          <a class="title" href="/campaigns/<%= campaign._id %>">
-            <strong><%= game.title %></strong>
-          </a><br>
-          by <span class="light-text"><%= game._creator.username %></span><br>
-          <span class="light-text description"><%= game.description %></span>
+<div class="container-fluid">
+  <div class="row">
+    <h2 class="text-center">Games</h2>
+    <% games.forEach((game) => { %>
+      <div class="col-lg-3">
+        <div class="card">
+          <img class="card-img-top" src="http://via.placeholder.com/350x150" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">
+              <%= game.title %>
+            </h5>
+            <p class="card-text">By
+              <%= game._creator.username %>
+            </p>
+            <p class="card-text">
+              <%= game.description %>
+            </p>
+            <a href="#" class="btn btn-success">Go somewhere</a>
+          </div>
         </div>
       </div>
-    <%  }) %>
+      <%  }) %>
+    </div>
   </div>
