@@ -143,6 +143,16 @@ passport.use('local-login', new LocalStrategy({
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.use( (req, res, next) => {
+  console.log("My First Middleware", req.user);
+  if (typeof(req.user) !== "undefined"){
+    res.locals.userSignedIn = true;
+  } else {
+    res.locals.userSignedIn = false;
+  }
+  next();
+});
+
 app.use('/', index);
 app.use('/users', users);
 app.use('/', authRoutes);
