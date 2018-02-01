@@ -6,15 +6,17 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const expressLayouts = require('express-ejs-layouts');
+const ensureLogin = require("connect-ensure-login");
 const passport = require('passport');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcrypt');
 
-var index = require('./routes/index');
-var users = require('./routes/users');
+const index = require('./routes/index');
+const users = require('./routes/users');
 const authRoutes = require('./routes/authentication.js');
+const games = require('./routes/games.js');
 
 const User = require('./models/user');
 
@@ -146,6 +148,8 @@ app.use(passport.session());
 app.use('/', index);
 app.use('/users', users);
 app.use('/', authRoutes);
+app.use('/', games);
+
 
 
 // catch 404 and forward to error handler
