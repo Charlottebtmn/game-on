@@ -28,4 +28,3 @@ router.post('/new', function (req, res, next) {
 });
 
 module.exports = router;
->>>>>>> 9cef3ee09a2154259711a3c8c2e1f12ad2284b8e
