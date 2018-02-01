@@ -26,7 +26,7 @@ const GameSchema = new Schema({
     type: String, // string?
     required: true
   },
-  players: [{
+  _creator: [{
     type: Schema.Types.ObjectId,
     ref: 'User'
   }],
