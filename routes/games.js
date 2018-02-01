@@ -6,7 +6,6 @@ router.get('/new', function (req, res, next) {
   res.render('games/new');
 });
 
-module.exports = router;
 router.post('/new', function (req, res, next) {
   const newGame = new Game({
     title: req.body.title,
@@ -19,12 +18,23 @@ router.post('/new', function (req, res, next) {
   newGame.save((err) => {
     if (err) {
       console.error(err);
-    }
-    else {
+    } else {
       res.redirect(`/`);
     }
   });
-
 });
+
+router.get('/games/:id', function (req, res, next) {
+  let id = req.params.id;
+  Game.findById(id, (err, game) => {
+    if (err) {
+      console.error(err);
+    }
+    res.render('games/view', {
+        game,
+      });
+  });
+});
+
 
 module.exports = router;

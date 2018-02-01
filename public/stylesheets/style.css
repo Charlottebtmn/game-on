@@ -17,15 +17,15 @@ a {
 }
 
 nav.navbar {
-  box-shadow: 0px 4px 10px 0 rgba(22,22,22,0.08);
+  box-shadow: 0px 4px 10px 0 rgba(22, 22, 22, 0.08);
   margin-bottom: 0;
 }
 
-.nav > li > a {
+.nav>li>a {
   color: black;
 }
 
-.nav > li.nav-logo {
+.nav>li.nav-logo {
   width: 174px;
   display: block;
   position: absolute;
@@ -38,7 +38,7 @@ nav.navbar {
   width: 100%;
 }
 
-.nav > .li-logout {
+.nav>.li-logout {
   padding: 7px;
 }
 
@@ -60,11 +60,12 @@ nav.navbar {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.home-heading-wrapper > h1 {
+
+.home-heading-wrapper>h1 {
   font-size: 5rem;
 }
 
-.home-heading-wrapper > p {
+.home-heading-wrapper>p {
   font-size: 2rem;
 }
 
@@ -75,6 +76,7 @@ nav.navbar {
 }
 
 /* public/stylesheets/style.css */
+
 .campaign-row {
   margin-top: 3%;
 }
@@ -96,12 +98,31 @@ nav.navbar {
   font-size: 0.9em;
 }
 
-.campaign-info-wrapper > .description {
+.campaign-info-wrapper>.description {
   display: block;
   margin-top: 20px;
 }
 
-.campaign-info-wrapper > .title {
+.campaign-info-wrapper>.title {
   color: black;
   font-size: 1.1em;
 }
+
+#map {
+  height: 50vh;;
+}
+
+/* Optional: Makes the sample page fill the window. */
+
+
+.controls {
+  margin-top: 10px;
+  border: 1px solid transparent;
+  border-radius: 2px 0 0 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  height: 32px;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
