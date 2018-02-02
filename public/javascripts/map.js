@@ -1,5 +1,3 @@
-console.log("connected");
-
 function initialize() {
   console.log("connected");
   let mapOptions = {
@@ -26,8 +24,6 @@ function initialize() {
   let marker = new google.maps.Marker({
     map: map
   });
-
-
 
   google.maps.event.addListener(marker, 'click', function () {
     infowindow.open(map, marker);
