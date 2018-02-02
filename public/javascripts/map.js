@@ -1,5 +1,4 @@
 function initialize() {
-  console.log("connected");
   let mapOptions = {
     center: {
       lat: 48.866667,
@@ -51,7 +50,6 @@ function initialize() {
       location: place.geometry.location
     }));
     marker.setVisible(true);
-
   });
 }
 

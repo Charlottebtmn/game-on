@@ -15,7 +15,7 @@ router.post('/new', function (req, res, next) {
     time: req.body.time,
     nbplayers: req.body.players,
   });
-  console.log(place.geometry.location);
+  // console.log('Place :',place.geometry.location);
   newGame.save((err) => {
     if (err) {
       console.error(err);
