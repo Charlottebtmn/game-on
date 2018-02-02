@@ -1,5 +1,6 @@
+
 function initialize() {
-  let mapOptions = {
+  var mapOptions = {
     center: {
       lat: 48.866667,
       lng: 2.333333
@@ -7,6 +8,7 @@ function initialize() {
     zoom: 12,
     scrollwheel: false
   };
+
   let map = new google.maps.Map(document.getElementById('map'),
     mapOptions);
 
@@ -50,6 +52,12 @@ function initialize() {
       location: place.geometry.location
     }));
     marker.setVisible(true);
+
+    // updatee map?
+    $("#pac-input").change(function () {
+      console.log(place.geometry.location);
+    });
+
   });
 }
 
@@ -64,6 +72,7 @@ function handleError(err) {
   console.log('Oh no! Error:');
   console.log(err);
 }
+
 window.onload = function () {
   initialize();
   var buttons = Array.from(document.querySelectorAll('.js-send'));
@@ -85,8 +94,12 @@ window.onload = function () {
         error: handleError
       });
       location.reload();
-    })
-  })
+    });
+  });
+
+
 }
+
 // Run the initialize function when the window has finished loading.
 // google.maps.event.addDomListener(window, 'load', initialize);
+
