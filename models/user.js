@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+var multer  = require('multer');
 const Schema = mongoose.Schema;
 const BoardGame = require('./boardgame');
 
@@ -9,7 +10,7 @@ const userSchema = new Schema({
   description: String,
   imgUrl: {
     type: String,
-    default: "https://placeholdit.imgix.net/~text?txtsize=33&txt=250%C3%97250&w=250&h=250"
+    default: "https://placeholdit.imgix.net/~text?txtsize=33&txt=250%C3%97250&w=250&h=250",
   },
   // boardgames owned
   _boardGame: [{

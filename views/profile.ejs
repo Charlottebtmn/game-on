@@ -1,36 +1,69 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-6 centered-form">
-      <form action="/profile" method="post">
+      <form action="/profile" method="post" enctype="multipart/form-data">
         <div class="form-group">
           <label for="username">Username</label>
-          <input type="text" name="username" class="form-control">
+          <input type="text" name="username" class="form-control" value="
+            <%= user.username %>
+          ">
+        </div>
+        <div class="form-group">
+          <input type="file" name="photo">
         </div>
         <div class="form-group">
           <label for="_boardGame">I own these boardgames</label>
           <select multiple class="form-control" name="_boardGame" title="I own these boardgames">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
+            <option value="catane">Catane</option>
+            <option value="pandemic" selected>Pandémic Legacy</option>
+            <option value="sevenWonders">Seven Wonders</option>
           </select>
         </div>
         <div class="form-group">
           <label for="type">I like these kind of games</label>
           <select multiple class="form-control" name="type" title="I own these boardgames">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
+            <option value="Strategie">Stratégie</option>
+            <option value="Apero">Apéro</option>
+            <option value="Plateau">Plateau</option>
           </select>
         </div>
         <div class="form-group">
           <label for="description">Describe yourself in a few words</label>
-          <textarea type="text" name="description" class="form-control" rows="5"></textarea>
+          <textarea type="text" name="description" class="form-control" rows="5" value="
+            <%= user.description %>
+          "></textarea>
         </div>
 
 
-        <button type="submit">Create a game</button>
+        <button type="submit">Update Profile</button>
       </form>
     </div>
-  </div>
+    <div class="col-sm-6">
+      <div>
+        <div class="around-image">
+          <img src="
+          <%= user.imgUrl%>
+          " alt="profile pic" class="img-rounded">
+        </div>
+      </div>
+      <dl class="dl-horizontal">
+        <dt>Username</dt>
+        <dd>
+          <%= user.username %>
+        </dd>
+        <dt>Who am I ?</dt>
+        <dd>
+          <%= user.description %>
+        </dd>
+        <dt>Games I own</dt>
+        <dd>
+          <%= user._boardGame %>
+        </dd>
+        <dt>I like to play...</dt>
+        <dd>
+          <%= user.type %>
+        </dd>
+      </dl>
+    </div>
 </div>
 </div>

@@ -12,6 +12,7 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcrypt');
+const multer  = require('multer');
 
 // looking for boardgames
 var where = require("lodash.where");
@@ -23,12 +24,10 @@ var where = require("lodash.where");
 
 
 const index = require('./routes/index');
-const users = require('./routes/users');
+const profile = require('./routes/profile');
 const authRoutes = require('./routes/authentication.js');
 const games = require('./routes/games.js');
-const profile = require('./routes/profile.js');
 const boardgames = require('./routes/boardgames.js')
-
 const User = require('./models/user');
 
 
@@ -167,7 +166,6 @@ app.use((req, res, next) => {
 });
 
 app.use('/', index);
-app.use('/users', users);
 app.use('/', authRoutes);
 app.use('/', games);
 app.use('/', profile);
