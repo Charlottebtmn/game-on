@@ -13,6 +13,12 @@ const MongoStore = require('connect-mongo')(session);
 const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcrypt');
 
+//algolia
+var algoliasearch = require('algoliasearch');
+// var client = algoliasearch('6ZF6OOM1VX', 'd9cd76444afed525edcfab99270ca3a1');
+// var index = client.initIndex('your_index_name');
+
+
 const index = require('./routes/index');
 const users = require('./routes/users');
 const authRoutes = require('./routes/authentication.js');
