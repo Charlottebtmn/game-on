@@ -7,13 +7,12 @@
           <input type="text" name="title" class="form-control">
         </div>
         <div class="form-group">
-          <label for="game">Board Game</label>
-          <select name="game" id="" class="form-control">
-            <option selected>Choose...</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-          </select>
+          <label for="game">Board Game</label><br>
+          <% games.forEach((game) => { %>
+            <label class="checkbox-inline">
+              <input type="checkbox" id="inlineCheckbox1" value="option1"> <%= game.title %>
+            </label>
+          <% }) %>
         </div>
         <div class="form-group">
           <label for="description">Description</label>
@@ -44,4 +43,3 @@
 </div>
 
 <script src="/javascripts/map.js"></script>
- 
