@@ -4,13 +4,26 @@
       <h1>
         <%= game.title %>
       </h1>
-      <p>
-        <%= game.time %>
-      </p>
-      <h3>
-        <%= game.description %>
-      </h3>
-      <input type="button" value="S'inscrire" class="btn btn-primary">
+      <div id="map">
+
+      </div>
+      <%= game.coordinates %>
+        <h2>
+          <%= game.adress %>
+        </h2>
+
+        <p>
+          <%= game.time %>
+        </p>
+        <h3>
+          <%= game.description %>
+        </h3>
+        <input type="button" value="S'inscrire" class="btn btn-primary">
     </div>
   </div>
 </div>
+
+<script>
+  window.coor = <%- JSON.stringify(game.coordinates) -%>;
+</script>
+<script src="/javascripts/map.js"></script>

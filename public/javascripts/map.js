@@ -1,70 +1,94 @@
 function initialize() {
-  var mapOptions = {
-    center: {
-      lat: 48.866667,
-      lng: 2.333333
-    },
-    zoom: 12,
-    scrollwheel: false
-  };
+  var coor = window.coor;
+  if (coor) {
+    mapOptions = {
+      center: {
+        lat: coor[0],
+        lng: coor[1],
+      },
+      zoom: 15,
+      scrollwheel: false
+    };
+    let map = new google.maps.Map(document.getElementById('map'),
+      mapOptions);
 
-  let map = new google.maps.Map(document.getElementById('map'),
-    mapOptions);
+    let marker = new google.maps.Marker({
+      map: map,
+      position: {
+        lat: coor[0],
+        lng: coor[1],
+      },
+    });
 
-  let input = (document.getElementById('pac-input'));
+  } else if (coor === undefined) {
 
-  // Create the autocomplete helper, and associate it with
-  // an HTML text input box.
-  let autocomplete = new google.maps.places.Autocomplete(input);
-  // autocomplete.bindTo('bounds', map);
+    var mapOptions = {
+      center: {
+        lat: 48.866667,
+        lng: 2.333333
+      },
+      zoom: 12,
+      scrollwheel: false
+    };
 
-  // map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+    let map = new google.maps.Map(document.getElementById('map'),
+      mapOptions);
 
-  let infowindow = new google.maps.InfoWindow();
-  let marker = new google.maps.Marker({
-    map: map
-  });
+    let input = (document.getElementById('pac-input'));
 
-  google.maps.event.addListener(marker, 'click', function () {
-    infowindow.open(map, marker);
-  });
+    // Create the autocomplete helper, and associate it with
+    // an HTML text input box.
+    let autocomplete = new google.maps.places.Autocomplete(input);
+    // autocomplete.bindTo('bounds', map);
 
-  // Get the full place details when the user selects a place from the
-  // list of suggestions.
-  google.maps.event.addListener(autocomplete, 'place_changed', function () {
-    infowindow.close();
-    let place = autocomplete.getPlace();
-    if (!place.geometry) {
-      return;
-    }
+    // map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
-    if (place.geometry.viewport) {
-      map.fitBounds(place.geometry.viewport);
-    } else {
-      map.setCenter(place.geometry.location);
-      map.setZoom(17);
-    }
+    let infowindow = new google.maps.InfoWindow();
+    let marker = new google.maps.Marker({
+      map: map
+    });
 
+    google.maps.event.addListener(marker, 'click', function () {
+      infowindow.open(map, marker);
+    });
 
-    // update map?
-    if ($('#pac-input').val()) {
-      console.log(place.geometry.location.lat());
-      $('#lat-input').val(place.geometry.location.lat());
-      $('#lng-input').val(place.geometry.location.lng());
-    }
+    // Get the full place details when the user selects a place from the
+    // list of suggestions.
+    google.maps.event.addListener(autocomplete, 'place_changed', function () {
+      infowindow.close();
+      let place = autocomplete.getPlace();
+      if (!place.geometry) {
+        return;
+      }
 
-    // Set the position of the marker using the place ID and location.
-    marker.setPlace( /** @type {!google.maps.Place} */ ({
-      placeId: place.place_id,
-      location: place.geometry.location
-    }));
-    marker.setVisible(true);
-
+      if (place.geometry.viewport) {
+        map.fitBounds(place.geometry.viewport);
+      } else {
+        map.setCenter(place.geometry.location);
+        map.setZoom(17);
+      }
 
 
+      // update map?
+      if ($('#pac-input').val()) {
+        console.log(place.geometry.location.lat());
+        $('#lat-input').val(place.geometry.location.lat());
+        $('#lng-input').val(place.geometry.location.lng());
+      }
 
-  });
+      // Set the position of the marker using the place ID and location.
+      marker.setPlace( /** @type {!google.maps.Place} */ ({
+        placeId: place.place_id,
+        location: place.geometry.location
+      }));
+      marker.setVisible(true);
+
+    });
+  }
 }
+
+
+
 
 
 
