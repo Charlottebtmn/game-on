@@ -14,6 +14,12 @@ const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcrypt');
 const multer  = require('multer');
 
+//algolia
+var algoliasearch = require('algoliasearch');
+// var client = algoliasearch('6ZF6OOM1VX', 'd9cd76444afed525edcfab99270ca3a1');
+// var index = client.initIndex('your_index_name');
+
+
 const index = require('./routes/index');
 const profile = require('./routes/profile');
 const authRoutes = require('./routes/authentication.js');
