@@ -4,7 +4,6 @@ const Game = require('../models/game');
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
-  console.log('yolo');
   Game
     .find({})
     .populate('_creator')

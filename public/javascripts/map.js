@@ -1,4 +1,3 @@
-
 function initialize() {
   var mapOptions = {
     center: {
@@ -46,6 +45,14 @@ function initialize() {
       map.setZoom(17);
     }
 
+
+    // update map?
+    if ($('#pac-input').val()) {
+      console.log(place.geometry.location.lat());
+      $('#lat-input').val(place.geometry.location.lat());
+      $('#lng-input').val(place.geometry.location.lng());
+    }
+
     // Set the position of the marker using the place ID and location.
     marker.setPlace( /** @type {!google.maps.Place} */ ({
       placeId: place.place_id,
@@ -53,10 +60,8 @@ function initialize() {
     }));
     marker.setVisible(true);
 
-    // updatee map?
-    $("#pac-input").change(function () {
-      console.log(place.geometry.location);
-    });
+
+
 
   });
 }
@@ -102,4 +107,3 @@ window.onload = function () {
 
 // Run the initialize function when the window has finished loading.
 // google.maps.event.addDomListener(window, 'load', initialize);
-

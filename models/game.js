@@ -16,12 +16,8 @@ const GameSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'BoardGame'
   },
-  adress: {
-    type: {
-      type: String
-    },
-    coordinates: [Number],
-  },
+  adress: String,
+  coordinates: [Number],
   time: {
     type: String, // string?
     required: true

@@ -11,6 +11,7 @@ router.post('/new', function (req, res, next) {
     title: req.body.title,
     description: req.body.description,
     _boardgame: req.body._id,
+    coordinates : [req.body.lat, req.body.lng],
     adress: req.body.adress,
     time: req.body.time,
     nbplayers: req.body.players,
