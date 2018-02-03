@@ -6,14 +6,17 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const expressLayouts = require('express-ejs-layouts');
-//const ensureLogin = require("connect-ensure-login");
+// const ensureLogin = require("connect-ensure-login");
 const passport = require('passport');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcrypt');
 
-//algolia
+// looking for boardgames
+var where = require("lodash.where");
+
+// algolia
 var algoliasearch = require('algoliasearch');
 // var client = algoliasearch('6ZF6OOM1VX', 'd9cd76444afed525edcfab99270ca3a1');
 // var index = client.initIndex('your_index_name');
@@ -23,7 +26,8 @@ const index = require('./routes/index');
 const users = require('./routes/users');
 const authRoutes = require('./routes/authentication.js');
 const games = require('./routes/games.js');
-const profile = require('./routes/profile.js')
+const profile = require('./routes/profile.js');
+const boardgames = require('./routes/boardgames.js')
 
 const User = require('./models/user');
 
@@ -152,9 +156,9 @@ passport.use('local-login', new LocalStrategy({
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use( (req, res, next) => {
+app.use((req, res, next) => {
   console.log("My First Middleware", req.user);
-  if (typeof(req.user) !== "undefined"){
+  if (typeof (req.user) !== "undefined") {
     res.locals.userSignedIn = true;
   } else {
     res.locals.userSignedIn = false;
@@ -167,6 +171,7 @@ app.use('/users', users);
 app.use('/', authRoutes);
 app.use('/', games);
 app.use('/', profile);
+app.use('/', boardgames);
 
 
 

@@ -3,7 +3,14 @@ var router = express.Router();
 const Game = require('../models/game');
 
 router.get('/new', function (req, res, next) {
-  res.render('games/new');
+  Game.find((err, games) => {
+    if (err) {
+      console.error(err);
+    }
+    res.render('games/new', {
+      games,
+    });
+  });
 });
 
 router.post('/new', function (req, res, next) {
@@ -11,7 +18,7 @@ router.post('/new', function (req, res, next) {
     title: req.body.title,
     description: req.body.description,
     _boardgame: req.body._id,
-    coordinates : [req.body.lat, req.body.lng],
+    coordinates: [req.body.lat, req.body.lng],
     adress: req.body.adress,
     time: req.body.time,
     nbplayers: req.body.players,
@@ -33,8 +40,8 @@ router.get('/games/:id', function (req, res, next) {
       console.error(err);
     }
     res.render('games/view', {
-        game,
-      });
+      game,
+    });
   });
 });
 

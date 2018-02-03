@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 text-center">
+      <input type="search" name="" id="bg" class="bg-search">
+    </div>
+    <div class="col-sm-12">
+      <ul id="list">
+
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.5/lodash.core.min.js"></script>
+<script>
+  $(document).ready(function () {
+    $("#bg").keydown(function () {
+      showBg();
+    });
+  });
+
+  var bg = <%- JSON.stringify(bg) -%>;
+  var filteredBg = _.filter(bg, function(o) { return o.title && o.title.length > 0; });
+
+  function showBg() {
+    $('#list').empty();
+    for (let i = 0; i < filteredBg.length; i++) {
+      $('#list').append(
+        '<li>' + filteredBg[i].title + '</li>'
+      );
+    }
+  }
+
+
+  _.filter(bg, function(o) { return o.title && o.title.length > 0; })
+</script>
