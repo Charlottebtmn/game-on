@@ -14,6 +14,8 @@ const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcrypt');
 const multer  = require('multer');
 
+require("dotenv").config();
+
 // looking for boardgames
 var where = require("lodash.where");
 
@@ -31,7 +33,7 @@ const boardgames = require('./routes/boardgames.js')
 const User = require('./models/user');
 
 
-mongoose.connect('mongodb://localhost/game-on');
+mongoose.connect(process.env.MONGODB_URI);
 
 var app = express();
 
