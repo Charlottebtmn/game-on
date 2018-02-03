@@ -126,3 +126,15 @@ nav.navbar {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
+.img-rounded {
+  width: 200px;
+  margin-bottom: 50px;
+}
+
+.around-image {
+  text-align: center;
+}
+
+.dl-horizontal {
+  text-align: center;
+}
