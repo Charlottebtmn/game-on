@@ -14,7 +14,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.5/lodash.core.min.js"></script>
 <script>
   $(document).ready(function () {
-    $("#bg").keydown(function () {
+    $("#bg").keydown(function (e) {
+      console.log(e)
+      filteredBg = filteredBg.filter(x => x.title.indexOf(e.target.value) !== -1)
       showBg();
     });
   });
