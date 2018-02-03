@@ -14,17 +14,18 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.5/lodash.core.min.js"></script>
 <script>
   $(document).ready(function () {
-    $("#bg").keydown(function (e) {
-      console.log(e)
-      filteredBg = filteredBg.filter(x => x.title.indexOf(e.target.value) !== -1)
+    $("#bg").keyup(function () {
       showBg();
     });
   });
 
   var bg = <%- JSON.stringify(bg) -%>;
-  var filteredBg = _.filter(bg, function(o) { return o.title && o.title.length > 0; });
 
   function showBg() {
+    var filteredBg = _.filter(bg, function (o) {
+      return o.title && o.title.indexOf($('#bg').val()) !== -1
+    });
+
     $('#list').empty();
     for (let i = 0; i < filteredBg.length; i++) {
       $('#list').append(
