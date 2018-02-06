@@ -17,13 +17,13 @@ router.post('/new', function (req, res, next) {
   const newGame = new Game({
     title: req.body.title,
     description: req.body.description,
-    _boardgame: req.body._id,
+    boardgame: req.body.boardgame,
     coordinates: [req.body.lat, req.body.lng],
     adress: req.body.adress,
     time: req.body.time,
     nbplayers: req.body.players,
+    _creator: req.user._id,
   });
-  // console.log('Place :',place.geometry.location);
   newGame.save((err) => {
     if (err) {
       console.error(err);
