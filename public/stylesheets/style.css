@@ -19,7 +19,15 @@ a {
 
 nav.navbar {
   box-shadow: 0px 4px 10px 0 rgba(22, 22, 22, 0.08);
-  margin-bottom: 0;
+  margin-bottom: 0px;
+}
+
+#home-nav {
+  height: 72px;
+}
+
+.logo {
+  height: 50px;
 }
 
 .nav>li>a {
@@ -30,7 +38,7 @@ nav.navbar {
   width: 174px;
   display: block;
   position: absolute;
-  left: 50%;
+  left: 35%;
   margin-left: -87px;
 }
 
