@@ -13,10 +13,7 @@ const userSchema = new Schema({
     default: "https://placeholdit.imgix.net/~text?txtsize=33&txt=250%C3%97250&w=250&h=250",
   },
   // boardgames owned
-  _boardGame: [{
-    type: Schema.Types.ObjectId,
-    ref: 'BoardGame'
-  }],
+  boardGame: String,
   // user belongs to X team
   // _team: {
   //   type: Schema.Types.ObjectId,

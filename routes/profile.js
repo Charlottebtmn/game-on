@@ -15,7 +15,7 @@ router.post('/profile', ensureLoggedIn(), upload.single('photo'), function(req, 
   User.findByIdAndUpdate(req.user._id, {
     username: req.body.username,
     description: req.body.description,
-    //_boardGame: req.body._boardGame,
+    boardGame: req.body.boardGame,
     type: req.body.type,
     imgUrl: '/uploads/'+req.file.filename
   },

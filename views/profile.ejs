@@ -12,19 +12,16 @@
           <input type="file" name="photo">
         </div>
         <div class="form-group">
-          <label for="_boardGame">I own these boardgames</label>
-          <select multiple class="form-control" name="_boardGame" title="I own these boardgames">
-            <option value="catane">Catane</option>
-            <option value="pandemic" selected>Pandémic Legacy</option>
-            <option value="sevenWonders">Seven Wonders</option>
-          </select>
+          <label for="boardGame">I own these boardgames</label>
+          <textarea type="text" name="boardGame" class="form-control" rows="5" value="
+            <%= user.boardGame %>
+          "></textarea>
         </div>
         <div class="form-group">
-          <label for="type">I like these kind of games</label>
-          <select multiple class="form-control" name="type" title="I own these boardgames">
-            <option value="Strategie">Stratégie</option>
-            <option value="Apero">Apéro</option>
-            <option value="Plateau">Plateau</option>
+          <label for="type">I like these kinds of games</label>
+          <textarea type="text" name="type" class="form-control" rows="5" value="
+            <%= user.type %>
+          "></textarea>
           </select>
         </div>
         <div class="form-group">
@@ -57,7 +54,7 @@
         </dd>
         <dt>Games I own</dt>
         <dd>
-          <%= user._boardGame %>
+          <%= user.boardGame %>
         </dd>
         <dt>I like to play...</dt>
         <dd>
