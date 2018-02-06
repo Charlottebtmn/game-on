@@ -29,7 +29,15 @@
     $('#list').empty();
     for (let i = 0; i < filteredBg.length; i++) {
       $('#list').append(
-        '<li>' + filteredBg[i].title + '</li>'
+
+
+
+        '<div class="col-sm-4 bg-list-container">' +
+        '<img class="bg-list-image img-responsive" src="' + filteredBg[i].img +
+        '">' +
+        filteredBg[i].title +
+        '</div>'
+        // '<li>' + filteredBg[i].title + '</li>'
       );
     }
   }
