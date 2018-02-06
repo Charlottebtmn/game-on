@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const Game = require('../models/game');
+const ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn;
 
 router.get('/new', function (req, res, next) {
   Game.find((err, games) => {
@@ -13,17 +14,17 @@ router.get('/new', function (req, res, next) {
   });
 });
 
-router.post('/new', function (req, res, next) {
+router.post('/new', ensureLoggedIn(), function (req, res, next) {
   const newGame = new Game({
     title: req.body.title,
     description: req.body.description,
-    _boardgame: req.body._id,
+    boardgame: req.body.boardgame,
     coordinates: [req.body.lat, req.body.lng],
     adress: req.body.adress,
     time: req.body.time,
     nbplayers: req.body.players,
+    _creator: req.user._id,
   });
-  // console.log('Place :',place.geometry.location);
   newGame.save((err) => {
     if (err) {
       console.error(err);
@@ -45,5 +46,18 @@ router.get('/games/:id', function (req, res, next) {
   });
 });
 
+router.post('/games/:id/register', ensureLoggedIn(), function (req, res, next) { // req.user._id
+  let id = req.params.id;
+  Game.findByIdAndUpdate(id, {
+    $push: { // Mongo oriented
+      _players: req.user._id,
+    }
+  }, (err, game) => { // callback
+    if (err) {
+      console.error(err);
+    }
+    res.redirect('/');
+  });
+});
 
 module.exports = router;

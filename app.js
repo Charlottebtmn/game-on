@@ -33,7 +33,7 @@ const boardgames = require('./routes/boardgames.js')
 const User = require('./models/user');
 
 
-mongoose.connect(process.env.MONGODB_URI);
+mongoose.connect("mongodb://localhost/game-on" || process.env.MONGODB_URI);
 
 var app = express();
 
@@ -166,6 +166,15 @@ app.use((req, res, next) => {
   }
   next();
 });
+
+// app.use((req, res, next) => {
+//   if (typeof (req.user) !== "undefined" {
+//     res.locals.msg = {
+
+//     }
+//   }
+//   next();
+// });
 
 app.use('/', index);
 app.use('/', authRoutes);

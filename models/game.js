@@ -12,28 +12,25 @@ const GameSchema = new Schema({
     type: String,
     required: true
   },
-  _boardgame: {
-    type: Schema.Types.ObjectId,
-    ref: 'BoardGame'
-  },
+  boardGame: String,
   adress: String,
   coordinates: [Number],
   time: {
-    type: String, // string?
+    type: String,
     required: true
   },
-  _creator: [{
-    type: Schema.Types.ObjectId,
-    ref: 'User'
-  }],
   nbplayers: {
     type: Number,
     required: true,
     default: 0
   },
-  _game: [{
+  _creator: [{
     type: Schema.Types.ObjectId,
-    ref: 'Game'
+    ref: 'User'
+  }],
+  _players: [{
+    type: Schema.Types.ObjectId,
+    ref: 'User'
   }],
 });
 
