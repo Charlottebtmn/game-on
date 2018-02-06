@@ -18,7 +18,9 @@
         <h3>
           <%= game.description %>
         </h3>
-        <input type="button" value="S'inscrire" class="btn btn-primary">
+        <form action="/games/<%= game._id %>/register" method="post">
+          <input type="submit" value="S'inscrire" class="btn btn-primary">
+        </form>
     </div>
   </div>
 </div>
