@@ -1,6 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 16px "Pacifico", Helvetica, Arial, sans-serif;
 }
 
 a {
@@ -138,6 +139,7 @@ nav.navbar {
 .dl-horizontal {
   text-align: center;
 }
+
 /* CUSTOM CSS */
 
 .content {
@@ -160,6 +162,21 @@ nav.navbar {
   color: #DDDDDD;
   padding: 1vh;
   line-height: 1vh;
+}
+
+.bg-search {
+  border-radius: 18px;
+  border-color: #00B7FF;
+}
+
+.bg-list-image {
+  height: 100px;
+}
+
+.bg-list-container {
+  border: 1px solid black;
+  border-radius: 15px;
+  text-align: center;
 }
 
 /* Algolia */
@@ -220,7 +237,8 @@ nav.navbar {
 }
 
 /* BG SEARCH */
-.bg-search{
+
+.bg-search {
   width: 50vw;
   height: 6vh;
   font-size: 3rem;
