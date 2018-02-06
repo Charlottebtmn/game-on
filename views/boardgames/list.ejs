@@ -29,13 +29,16 @@
     $('#list').empty();
     for (let i = 0; i < filteredBg.length; i++) {
       $('#list').append(
+        '<div class="fluid-container">' +
 
-
-
-        '<div class="col-sm-4 bg-list-container">' +
-        '<img class="bg-list-image img-responsive" src="' + filteredBg[i].img +
+        '<div class="col-sm-4 bg-list-container text-center">' +
+        '<img class="bg-list-image img-responsive center-block" src="' + filteredBg[i].img +
         '">' +
+        '<p class="bg-title">' +
         filteredBg[i].title +
+        '</p>' +
+        '</div>' +
+        
         '</div>'
         // '<li>' + filteredBg[i].title + '</li>'
       );

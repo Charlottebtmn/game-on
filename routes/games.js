@@ -28,7 +28,9 @@ router.post('/new', function (req, res, next) {
     if (err) {
       console.error(err);
     } else {
-      res.redirect(`/`);
+      res.render('/', {
+        msg: 'Your game is created! ROCK ON!'
+      });
     }
   });
 });

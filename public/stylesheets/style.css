@@ -179,6 +179,11 @@ nav.navbar {
   text-align: center;
 }
 
+.bg-title {
+  white-space:nowrap;
+  font-size: 1.5rem
+}
+
 /* Algolia */
 
 .aa-input-container {
