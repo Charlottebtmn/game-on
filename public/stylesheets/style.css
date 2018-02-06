@@ -241,6 +241,10 @@ nav.navbar {
   background-color: rgba(241, 241, 241, 0.35);
 }
 
+.logo {
+  text-align: center;
+}
+
 /* BG SEARCH */
 
 .bg-search {
