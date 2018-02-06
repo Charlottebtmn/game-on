@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-var multer  = require('multer');
+var multer = require('multer');
 const Schema = mongoose.Schema;
 const BoardGame = require('./boardgame');
 
@@ -7,6 +7,10 @@ const userSchema = new Schema({
   email: String,
   username: String,
   password: String,
+  _games: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Game'
+  }],
   description: String,
   imgUrl: {
     type: String,
@@ -25,10 +29,6 @@ const userSchema = new Schema({
     enum: ['Luck', 'Strategy', 'Others'],
     required: true
   }],
-  // timestamps: {
-  //   createdAt: "created_at",
-  //   updatedAt: "updated_at"
-  // }
 });
 
 const User = mongoose.model('User', userSchema);

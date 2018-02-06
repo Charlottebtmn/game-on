@@ -4,37 +4,33 @@
       <form action="/new" method="post">
         <div class="form-group">
           <label for="title">Title</label>
-          <input type="text" name="title" class="form-control">
+          <input required="true" type="text" name="title" class="form-control">
         </div>
         <div class="form-group">
           <label for="game">Board Game</label><br>
-          <% games.forEach((game) => { %>
-            <label class="checkbox-inline">
-              <input type="checkbox" id="inlineCheckbox1" value="option1"> <%= game.title %>
-            </label>
-          <% }) %>
+              <input type="text" class="form-control" id="inlineCheckbox1" placeholder="Your favorite board game">
         </div>
         <div class="form-group">
           <label for="description">Description</label>
-          <textarea type="password" name="description" class="form-control" rows="5"></textarea>
+          <textarea required="true" type="password" name="description" class="form-control" rows="5"></textarea>
         </div>
         <div class="form-group">
           <label for="adress">Adress</label>
-          <input type="text" name="adress" class="form-control" id="pac-input">
+          <input required="true" type="text" name="adress" class="form-control" id="pac-input">
           <input type="text" name="lat" class="form-control hidden" id="lat-input">
           <input type="text" name="lng" class="form-control hidden" id="lng-input">
         </div>
         <div class="form-group">
           <label for="example-datetime-local-input" class="col-2 col-form-label">Date and time</label>
           <div class="col-10">
-            <input class="form-control" type="datetime-local" name="time" value="2011-08-19T13:45:00" id="example-datetime-local-input">
+            <input required="true" class="form-control" type="datetime-local" name="time" value="2011-08-19T13:45:00" id="example-datetime-local-input">
           </div>
         </div>
         <div class="form-group">
           <label for="players">Players</label>
-          <input type="number" value="4" name="players" class="form-control">
+          <input required="true" type="number" value="4" name="players" class="form-control">
         </div>
-        <button type="submit">Create a game</button>
+        <button type="submit" class="btn btn-primary">Create a game</button>
       </form>
     </div>
     <div id="map"></div>
