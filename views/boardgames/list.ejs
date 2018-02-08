@@ -3,7 +3,7 @@
     <div class="col-sm-12 text-center">
       <input type="search" name="" id="bg" class="bg-search">
     </div>
-    <div class="col-sm-12">
+    <div class="col-sm-12" style="padding-top:50px">
       <ul id="list">
 
       </ul>
@@ -31,14 +31,23 @@
       $('#list').append(
         '<div class="fluid-container">' +
 
-        '<div class="col-sm-4 bg-list-container text-center">' +
-        '<img class="bg-list-image img-responsive center-block" src="' + filteredBg[i].img +
+        '<div class="card col-sm-6">' +
+        '<img class="card-img-top img-responsive" style="height:100px; margin:0 auto" src="' + filteredBg[i].img +
         '">' +
-        '<p class="bg-title">' +
+        '<h4 class="card-title">' +
         filteredBg[i].title +
-        '</p>' +
+        '</h4><br>' +
+        '<p class="card-text">Age : ' +
+        filteredBg[i].age +
+        '</p><br>' +
+        '<p class="card-text">Players : ' +
+        filteredBg[i].players +
+        '</p><br>' +
+        '<p class="card-text">Time : ' +
+        filteredBg[i].time +
+        '</p><br>' +
         '</div>' +
-        
+
         '</div>'
         // '<li>' + filteredBg[i].title + '</li>'
       );
