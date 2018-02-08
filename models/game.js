@@ -27,10 +27,10 @@ const GameSchema = new Schema({
     required: true,
     default: 0
   },
-  _creator: [{
+  _creator: {
     type: Schema.Types.ObjectId,
     ref: 'User'
-  }],
+  },
   _players: [{
     type: Schema.Types.ObjectId,
     ref: 'User'

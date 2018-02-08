@@ -4,12 +4,10 @@
       <form action="/profile" method="post" enctype="multipart/form-data">
         <div class="form-group">
           <label for="username">Username</label>
-          <input type="text" name="username" class="form-control" value="
-            <%= user.username %>
-          ">
+          <input type="text" name="username" class="form-control" value="">
         </div>
         <div class="form-group">
-          <input type="file" name="photo">
+          <input type="file" name="photo" class="btn">
         </div>
         <div class="form-group">
           <label for="boardGame">I own these boardgames</label>
@@ -31,6 +29,9 @@
           "></textarea>
         </div>
 
+        <pre>
+          <%- JSON.stringify(user, null, 2) -%>
+        </pre>
 
         <button type="submit">Update Profile</button>
       </form>
@@ -62,5 +63,5 @@
         </dd>
       </dl>
     </div>
-</div>
+  </div>
 </div>

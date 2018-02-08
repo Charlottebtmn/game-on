@@ -123,9 +123,8 @@ nav.navbar {
   font-size: 1.1em;
 }
 
-#map {
+#map, #imap {
   height: 50vh;
-  ;
 }
 
 /* Optional: Makes the sample page fill the window. */

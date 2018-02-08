@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const Game = require('../models/game');
+const User = require('../models/user');
 var bg = require('../data/bg.json');
 const ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn;
 
@@ -38,28 +39,44 @@ router.post('/new', ensureLoggedIn(), function (req, res, next) {
 
 router.get('/games/:id', function (req, res, next) {
   let id = req.params.id;
-  Game.findById(id, (err, game) => {
-    if (err) {
-      console.error(err);
-    }
-    res.render('games/view', {
-      game,
-    });
-  });
+  Game.findById(id)
+    .populate("_creator")
+    .populate("_players")
+    .then(game => {
+      for (let i = 0; i < bg.length; i++) {
+        if (game.boardgame === bg[i].title) {
+          var bginfos = bg[i];
+        }
+      }
+      res.render('games/view', {
+        game,
+        bginfos
+      });
+
+    })
+    .catch(error => {
+      console.error(error);
+    })
 });
 
 router.post('/games/:id/register', ensureLoggedIn(), function (req, res, next) { // req.user._id
   let id = req.params.id;
+  let playerId = req.user._id;
   Game.findByIdAndUpdate(id, {
-    $push: { // Mongo oriented
-      _players: req.user._id,
-    }
-  }, (err, game) => { // callback
-    if (err) {
-      console.error(err);
-    }
-    res.redirect('/');
-  });
+      $push: { // Mongo oriented
+        _players: req.user._id,
+      }
+    }),
+    User.findByIdAndUpdate(playerId, {
+      $push: {
+        _games: id
+      }
+    }, (err, game) => { // callback
+      if (err) {
+        console.error(err);
+      }
+      res.redirect('/');
+    });
 });
 
 module.exports = router;
