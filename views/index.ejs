@@ -32,7 +32,11 @@
               <%= game._creator.username %>
             </p>
             <p class="card-text">
-              <%= game.description %>
+              <% if (game.description.length < 50) { %>
+                <%= game.description %>
+              <% } else { %> 
+                <%= game.description.substring(0,50) %>...
+             <% } %>              
             </p>
             <a href="/games/<%= game._id %>" class="btn btn-success">Go somewhere</a>
           </div>
@@ -41,33 +45,3 @@
       <%  }) %>
   </div>
 </div>
-
-<!-- Algolia -->
-<!-- Include AlgoliaSearch JS Client and autocomplete.js library -->
-<script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
-<script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js"></script>
-
-<!-- Initialize autocomplete menu -->
-<script>
-  var client = algoliasearch('6ZF6OOM1VX', 'e52f6f03acf02c2995c4156100d3e930');
-  var index = client.initIndex('YourIndex');
-  //initialize autocomplete on search input (ID selector must match)
-  autocomplete('#aa-search-input', {
-    hint: false
-  }, {
-    source: autocomplete.sources.hits(index, {
-      hitsPerPage: 5
-    }),
-    //value to be displayed in input control after user's suggestion selection
-    displayKey: 'name',
-    //hash of templates used when rendering dataset
-    templates: {
-      //'suggestion' templating function used to render a single suggestion
-      suggestion: function (suggestion) {
-        return '<span>' +
-          suggestion._highlightResult.name.value + '</span><span>' +
-          suggestion._highlightResult.team.value + '</span>';
-      }
-    }
-  });
-</script>

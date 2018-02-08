@@ -12,11 +12,6 @@ const BoardgameSchema = new Schema({
     type: String,
     required: true
   },
-  category: {
-    type: String,
-    enum: [],
-    required: true
-  },
   _owner: {
     type: Schema.Types.ObjectId,
     ref: 'User',

@@ -1,15 +1,72 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-6 centered-form">
+    <div class="col-lg-12 centered-form">
       <form action="/new" method="post">
         <div class="form-group">
           <label for="title">Title</label>
           <input required="true" type="text" name="title" class="form-control">
         </div>
         <div class="form-group">
-          <label for="game">Board Game</label><br>
-              <input type="text" class="form-control" name="boardgame" placeholder="Your favorite board game">
+          <label for="bg">Board Game</label>
+          <input required="true" type="search" name="boardgame" id="bg" class="form-control" placeholder="Type any board games!">
+          <ul id="list"></ul>
+
+
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.5/lodash.core.min.js"></script>
+          <script>
+            $(document).ready(function () {
+              $("#bg").keyup(function () {
+                if ($('#bg').val().length >= 3) {
+                  showBg();
+                };
+              });
+            });
+
+            var bg = <%- JSON.stringify(bg) -%>;
+
+            function showBg() {
+              var filteredBg = _.filter(bg, function (o) {
+                return o.title && o.title.indexOf($('#bg').val()) !== -1
+              });
+
+              $('#list').empty();
+              for (let i = 0; i < filteredBg.length; i++) {
+                $('#list').append(
+                  '<div class="fluid-container">' +
+
+                  '<div class="card col-sm-4 offset-lg-1">' +
+                  '<img class="card-img-top img-responsive" style="height:100px; margin:0 auto" src="' + filteredBg[i]
+                  .img +
+                  '">' +
+                  '<h3 class="card-title">' +
+                  filteredBg[i].title +
+                  '</h3><br>' +
+                  '<p class="card-text"><i class="fa fa-child"></i> ' +
+                  filteredBg[i].age +
+                  '</p>' +
+                  '<p class="card-text"><i class="fa fa-users"></i> ' +
+                  filteredBg[i].players +
+                  '</p>' +
+                  '<p class="card-text"><span class="glyphicon glyphicon-time"></span> ' +
+                  filteredBg[i].time +
+                  '</p>' +
+                  '<input type="button" class="btn btn-search" data-name="' + filteredBg[i].title +
+                  '" value="Choose!">' +
+                  '</div>' +
+
+                  '</div>'
+                );
+              }
+              $('.btn-search').click(function () {
+                let bgName = $(this).attr("data-name");
+                $('#bg').val(bgName);
+                console.log(bgName);
+                $('#list').empty();
+              });
+            };
+          </script>
         </div>
+        <br>
         <div class="form-group">
           <label for="description">Description</label>
           <textarea required="true" type="password" name="description" class="form-control" rows="5"></textarea>
@@ -20,9 +77,12 @@
           <input type="text" name="lat" class="form-control hidden" id="lat-input">
           <input type="text" name="lng" class="form-control hidden" id="lng-input">
         </div>
+        &nbsp;
+        <div id="map"></div>
+        &nbsp;
         <div class="form-group">
           <label for="example-datetime-local-input" class="col-2 col-form-label">Date and time</label>
-          <div class="col-10">
+          <div class="col-12">
             <input required="true" class="form-control" type="datetime-local" name="time" value="2011-08-19T13:45:00" id="example-datetime-local-input">
           </div>
         </div>
@@ -33,7 +93,7 @@
         <button type="submit" class="btn btn-primary">Create a game</button>
       </form>
     </div>
-    <div id="map"></div>
+
   </div>
 </div>
 </div>

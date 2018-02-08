@@ -12,7 +12,10 @@ const GameSchema = new Schema({
     type: String,
     required: true
   },
-  boardGame: String,
+  boardgame: {
+    type: String,
+    required: true
+  },
   adress: String,
   coordinates: [Number],
   time: {

@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const Game = require('../models/game');
+var bg = require('../data/bg.json');
 const ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn;
 
 router.get('/new', function (req, res, next) {
@@ -9,7 +10,8 @@ router.get('/new', function (req, res, next) {
       console.error(err);
     }
     res.render('games/new', {
-      games,
+      games: games,
+      bg: bg
     });
   });
 });

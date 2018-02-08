@@ -15,7 +15,9 @@
 <script>
   $(document).ready(function () {
     $("#bg").keyup(function () {
-      showBg();
+      if ($('#bg').val().length >= 3) {
+        showBg();
+      };
     });
   });
 
@@ -46,7 +48,7 @@
         '<p class="card-text"><span class="glyphicon glyphicon-time"></span> ' +
         filteredBg[i].time +
         '</p>' +
-        '<a href="' + filteredBg[i].url + '"> ' +
+        '<a href="' + filteredBg[i].url + '" target="_blank"> ' +
         '<input type="button" class="btn" value="Details">' +
         '</a>' +
         '</div>' +
