@@ -1,7 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Pacifico');
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,600');
+h1,
+h2 {
+  font-family: "Pacifico"
+}
+
 body {
   padding: 50px;
-  font: 16px "Pacifico", Helvetica, Arial, sans-serif;
+  font: 16px "Josefin Sans", Helvetica, Arial, sans-serif;
 }
 
 a {
@@ -181,16 +187,24 @@ nav.navbar {
   height: 100px;
 }
 
-.bg-list-container {
-  border: 1px solid black;
-  border-radius: 15px;
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border: 0.5px solid rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+  border-radius: 5px;
   text-align: center;
+  padding: 10px;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
 .bg-title {
-  white-space:nowrap;
+  white-space: nowrap;
   font-size: 1.5rem
 }
+
 
 /* Algolia */
 
@@ -259,4 +273,8 @@ nav.navbar {
   width: 50vw;
   height: 6vh;
   font-size: 3rem;
+}
+
+.card-text {
+  line-height: 7px
 }

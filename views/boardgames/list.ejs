@@ -31,25 +31,27 @@
       $('#list').append(
         '<div class="fluid-container">' +
 
-        '<div class="card col-sm-6">' +
+        '<div class="card col-sm-4 offset-lg-1">' +
         '<img class="card-img-top img-responsive" style="height:100px; margin:0 auto" src="' + filteredBg[i].img +
         '">' +
-        '<h4 class="card-title">' +
+        '<h3 class="card-title">' +
         filteredBg[i].title +
-        '</h4><br>' +
-        '<p class="card-text">Age : ' +
+        '</h3><br>' +
+        '<p class="card-text"><i class="fa fa-child"></i> ' +
         filteredBg[i].age +
-        '</p><br>' +
-        '<p class="card-text">Players : ' +
+        '</p>' +
+        '<p class="card-text"><i class="fa fa-users"></i> ' +
         filteredBg[i].players +
-        '</p><br>' +
-        '<p class="card-text">Time : ' +
+        '</p>' +
+        '<p class="card-text"><span class="glyphicon glyphicon-time"></span> ' +
         filteredBg[i].time +
-        '</p><br>' +
+        '</p>' +
+        '<a href="' + filteredBg[i].url + '"> ' +
+        '<input type="button" class="btn" value="Details">' +
+        '</a>' +
         '</div>' +
 
         '</div>'
-        // '<li>' + filteredBg[i].title + '</li>'
       );
     }
   }
