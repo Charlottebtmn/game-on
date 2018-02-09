@@ -2,7 +2,23 @@
 @import url('https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,600');
 h1,
 h2 {
-  font-family: "Pacifico"
+  font-family: "Pacifico";
+}
+
+h2 {
+  font-size: 5rem; 
+}
+
+h3 {
+  font-size: 4rem;
+}
+
+label {
+  font-size: 4rem
+}
+
+.form-control {
+  font-size: 2rem
 }
 
 body {
@@ -37,7 +53,12 @@ nav.navbar {
 }
 
 .nav>li>a {
-  color: black;
+  color: #111111;
+  font-size: 2rem
+}
+
+.btn-logout {
+  font-size: 2rem
 }
 
 .nav>li.nav-logo {
@@ -77,11 +98,13 @@ nav.navbar {
 }
 
 .home-heading-wrapper>h1 {
-  font-size: 5rem;
+  font-size: 10rem;
 }
 
 .home-heading-wrapper>p {
-  font-size: 2rem;
+  padding-top: 3rem;
+  font-size: 3rem;
+  font-weight: 600
 }
 
 .btn-logout {
@@ -123,7 +146,8 @@ nav.navbar {
   font-size: 1.1em;
 }
 
-#map, #imap {
+#map,
+#imap {
   height: 50vh;
 }
 
@@ -204,7 +228,6 @@ nav.navbar {
   font-size: 1.5rem
 }
 
-
 /* Algolia */
 
 .aa-input-container {
@@ -276,4 +299,8 @@ nav.navbar {
 
 .card-text {
   line-height: 7px
+}
+
+.text-center {
+  margin: 50px
 }
