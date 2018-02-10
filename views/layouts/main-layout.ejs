@@ -27,7 +27,9 @@
         </button>
       </div>
       <div class="logo">
-        <a href="/"><img class="logo-bis" src="/images/logo.png" alt=""></a>
+        <a href="/">
+          <img class="logo-bis" src="/images/logo.png" alt="">
+        </a>
       </div>
       <div class="collapse navbar-collapse" id="home-nav">
         <ul class="nav navbar-nav">
@@ -48,14 +50,17 @@
                 <a href="/board-games">Board Games</a>
               </li>
               <li>
-                <form action="/logout" method="POST">
-                  <button class="btn btn-link btn-logout" type="submit">Logout</a>
-                </form>
-                <!-- <a href="/logout">Logout</a> -->
-              </li>
-              <li>
                 <a href="/profile">Profile</a>
               </li>
+              <li>
+                <% if (userSignedIn) { %>
+                  <form action="/logout" method="POST">
+                    <button class="btn btn-link btn-logout" type="submit">Logout</a>
+                  </form>
+                  <% } %>
+                    <!-- <a href="/logout">Logout</a> -->
+              </li>
+
         </ul>
       </div>
     </div>

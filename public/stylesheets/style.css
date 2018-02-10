@@ -21,7 +21,8 @@ h3 {
 
 .nav>li>a:hover,
 .nav>li>a:focus {
-  background-color: transparent
+  background-color: transparent;
+  text-shadow:  0 0 15px #fff;
 }
 
 label {
