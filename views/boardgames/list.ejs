@@ -30,10 +30,13 @@
 
     $('#list').empty();
     for (let i = 0; i < filteredBg.length; i++) {
+      if (filteredBg[i].title.length > 12) {
+        filteredBg[i].title = filteredBg[i].title.substring(0,12) + '...';
+      }
       $('#list').append(
         '<div class="fluid-container">' +
 
-        '<div class="card col-sm-4 offset-lg-1">' +
+        '<div class="card col-sm-4">' +
         '<img class="card-img-top img-responsive" style="height:100px; margin:0 auto" src="' + filteredBg[i].img +
         '">' +
         '<h3 class="card-title">' +
