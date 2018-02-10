@@ -13,7 +13,7 @@ h2 {
 p {
   font-size: 18px;
   color: #232323;
-  text-shadow: 1px 0 0.1em #fff  
+  text-shadow: 1px 0 0.1em #fff
 }
 h3 {
   font-size: 4rem;
@@ -75,7 +75,13 @@ nav.navbar {
 }
 
 .logo {
-  height: 50px;
+  margin-top: -30px;
+  margin-bottom:-24px;
+}
+
+.logo-bis {
+  margin-top: 30px;
+  margin-bottom: -32px;
 }
 
 .nav>li>a {
@@ -112,10 +118,8 @@ nav.navbar {
   height: 75vh;
   padding: 0 30%;
   position: relative;
-  background-image: url("https://tothetablereviews.files.wordpress.com/2015/01/img_0009.jpg");
+  background-image: url("/images/boardgame-background.png");
   background-size: 100%;
-  opacity: 0.5;
-
 }
 
 .home-heading-wrapper {
@@ -125,13 +129,11 @@ nav.navbar {
   left: 50%;
   transform: translate(-50%, -50%);
   color: #000000;
-  opacity :1;
 }
 
 .home-heading-wrapper>h1 {
   font-size: 8rem;
   color: black;
-  opacity :1;
 }
 
 .home-heading-wrapper>p {
@@ -139,8 +141,6 @@ nav.navbar {
   font-size: 3rem;
   font-weight: 600;
   color: black;
-  opacity :1;
-
 }
 
 
