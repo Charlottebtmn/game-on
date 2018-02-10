@@ -22,7 +22,9 @@
     <% games.forEach((game) => { %>
       <div class="col-lg-3">
         <div class="card">
-          <img class="card-img-top card-img-top-index" src="<%=game._creator.imgUrl%>" alt="Card image cap">
+          <% if (game._creator) { %>
+            <img class="card-img-top card-img-top-index" src="<%=game._creator.imgUrl%>" alt="Card image cap">
+          <% } %>
 
           <div class="card-body">
             <div class="progress">
@@ -32,9 +34,11 @@
             <h4 class="card-title">
               <%= game.title %>
             </h4>
-            <p class="card-text">By
-              <%= game._creator.username %>
-            </p>
+            <% if (game._creator) { %>
+              <p class="card-text">By
+                <%= game._creator.username %>
+              </p>
+            <% } %>
             <p class="card-text">
               <% if (game.description.length < 50) { %>
                 <%= game.description %>
