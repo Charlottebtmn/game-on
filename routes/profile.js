@@ -16,7 +16,6 @@ router.get('/profile', ensureLoggedIn(), function (req, res, next) {
     .populate("_games")
     .then(user => {
       res.render('profile', {
-        user: req.user,
         user
       });
     })

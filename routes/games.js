@@ -25,7 +25,8 @@ router.post('/new', ensureLoggedIn(), function (req, res, next) {
     coordinates: [req.body.lat, req.body.lng],
     adress: req.body.adress,
     time: req.body.time,
-    nbplayers: req.body.players,
+    nbplayersmin: req.body.playersmin,
+    nbplayersmax: req.body.playersmax,
     _creator: req.user._id,
   });
   newGame.save((err) => {
