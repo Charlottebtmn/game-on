@@ -22,7 +22,12 @@ const GameSchema = new Schema({
     type: String,
     required: true
   },
-  nbplayers: {
+  nbplayersmin: {
+    type: Number,
+    required: true,
+    default: 0
+  },
+  nbplayersmax: {
     type: Number,
     required: true,
     default: 0
