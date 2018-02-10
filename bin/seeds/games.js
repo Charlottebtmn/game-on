@@ -1,9 +1,5 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/game-on', {
-  useMongoClient: true
-});
-
 const Game = require ('../../models/game.js');
 
 let gameData = [
@@ -15,6 +11,7 @@ let gameData = [
     time: 'Mardi 13 février - 19h',
     nbplayers: '4',
     _players: [],
+    boardgame: "Puissance 4"
   },
   {
     title: "Catane for ever!",
@@ -24,6 +21,7 @@ let gameData = [
     time: 'Mardi 13 février - 19h',
     nbplayers: '6',
     _players: [],
+    boardgame: "Catane"
   }
 ];
 

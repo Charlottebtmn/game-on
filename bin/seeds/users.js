@@ -1,8 +1,5 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/game-on', {
-  useMongoClient: true
-});
 
 const User = require ('../../models/user.js');
 
