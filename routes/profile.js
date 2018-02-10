@@ -14,6 +14,7 @@ router.get('/profile', ensureLoggedIn(), function (req, res, next) {
   let id = req.user._id;
   User.findById(id)
     .populate("_games")
+    .populate("_gamesCreated")
     .then(user => {
       res.render('profile', {
         user

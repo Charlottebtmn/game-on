@@ -20,7 +20,7 @@ const userSchema = new Schema({
   _gamesCreated: [{
     default: [],
     type: Schema.Types.ObjectId,
-    ref: 'GameCreated'
+    ref: 'Game'
   }],
 });
 

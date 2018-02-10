@@ -29,9 +29,6 @@
           "></textarea>
         </div>
 
-        <pre>
-          <%- JSON.stringify(user, null, 2) -%>
-        </pre>
 
         <button type="submit">Update Profile</button>
       </form>
@@ -64,9 +61,61 @@
       </dl>
       <div>
         <p>I created these games</p>
+        <% user._gamesCreated.forEach((gameCreated) => { %>
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">
+                <%= gameCreated.title %>
+              </h5>
+              <p class="card-text">
+                <% if (gameCreated.description.length < 50) { %>
+                  <%= gameCreated.description %>
+                    <% } else { %>
+                      <%= gameCreated.description.substring(0,50) %>...
+                        <% }; %>
+              </p>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                  <%= gameCreated.boardgame %>
+                </li>
+                <li class="list-group-item">
+                  <%= gameCreated.time %>
+                </li>
+              </ul>
+              <a href="/games/<%= gameCreated._id %>" class="btn btn-success">See Game !</a>
+            </div>
+          </div>
+        <% }) %>
       </div>
       <div>
-        <p>I joined these games</p> 
+        <br>
+        <p>I joined these games</p>
+        <% user._games.forEach((game) => { %>
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <%= game.title %>
+                </h5>
+                <p class="card-text">
+                  <% if (game.description.length < 50) { %>
+                    <%= game.description %>
+                      <% } else { %>
+                        <%= game.description.substring(0,50) %>...
+                          <% }; %>
+                </p>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">
+                    <%= game.boardgame %>
+                  </li>
+                  <li class="list-group-item">
+                    <%= game.time %>
+                  </li>
+                </ul>
+                <a href="/games/<%= game._id %>" class="btn btn-success">See Game !</a>
+              </div>
+            </div>
+        <% }) %>
       </div>
     </div>
   </div>
