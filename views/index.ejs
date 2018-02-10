@@ -25,9 +25,14 @@
         <div class="card">
           <img class="card-img-top" src="http://via.placeholder.com/350x150" alt="Card image cap">
           <div class="card-body">
-            <h5 class="card-title">
+            <div class="progress">
+              <div class="progress-bar progress-bar" style="width:<%= JSON.stringify((game._players.length / game.nbplayersmax)*100, 2, null) %>%">
+              </div>
+            </div>
+
+            <h4 class="card-title">
               <%= game.title %>
-            </h5>
+            </h4>
             <p class="card-text">By
               <%= game._creator.username %>
             </p>

@@ -9,7 +9,7 @@ router.get('/', (req, res, next) => {
     .populate('_creator')
     .exec((err, games) => {
       res.render('index', {
-        games
+        games,
       });
     });
 });

@@ -8,6 +8,8 @@ const User = require ('../../models/user.js');
 
 let userData = [
   {
+    _games: [],
+    _gamesCreated: [],
     email: 'vivian.sarazin@gmail.com',
     username: 'VivianSolide',
     password: 'patrick',
@@ -15,6 +17,8 @@ let userData = [
     imgUrl: 'https://media-exp2.licdn.com/mpr/mpr/shrinknp_200_200/AAIA_wDGAAAAAQAAAAAAAAp_AAAAJDQzMTFhZmNhLTM1ODgtNGU0YS04YWM1LTdhMTcxM2JlZGVmMg.jpg',
   },
   {
+    _games: [],
+    _gamesCreated: [],
     email: 'charlotte@ironhack.com',
     username: 'CreepyCharlotte',
     password: 'yolo2000',

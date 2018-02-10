@@ -14,6 +14,7 @@ let gameData = [
     coordinates: [42, 3],
     time: 'Mardi 13 février - 19h',
     nbplayers: '4',
+    _players: [],
   },
   {
     title: "Catane for ever!",
@@ -22,6 +23,7 @@ let gameData = [
     coordinates: [42, 3],
     time: 'Mardi 13 février - 19h',
     nbplayers: '6',
+    _players: [],
   }
 ];
 

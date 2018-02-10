@@ -37,11 +37,10 @@ router.post('/new', ensureLoggedIn(), function (req, res, next) {
       User.findById(req.user._id, (err, user) => {
         if (user._gamesCreated) {
           user._gamesCreated.push(newGame._id)
-        }
-        else {
+        } else {
           user._gamesCreated = [newGame._id];
         }
-        user.save( (err) => {
+        user.save((err) => {
           res.redirect('/');
         });
       });
@@ -68,27 +67,30 @@ router.get('/games/:id', function (req, res, next) {
     })
     .catch(error => {
       console.error(error);
-    })
+    });
 });
 
 router.post('/games/:id/register', ensureLoggedIn(), function (req, res, next) { // req.user._id
   let id = req.params.id;
   let playerId = req.user._id;
-  Game.findByIdAndUpdate(id, {
-      $push: { // Mongo oriented
-        _players: req.user._id,
-      }
-    }),
-    User.findByIdAndUpdate(playerId, {
-      $push: {
-        _games: id
-      }
-    }, (err, game) => { // callback
-      if (err) {
-        console.error(err);
-      }
-      res.redirect('/');
-    });
+  Game.findById(id, (err, game) => {
+    if (game._players) {
+      game._players.push(playerId);
+    } else {
+      game._players = [playerId];
+    }
+    game.save();
+  });
+  User.findByIdAndUpdate(playerId, {
+    $push: {
+      _games: id
+    }
+  }, (err, game) => { // callback
+    if (err) {
+      console.error(err);
+    }
+    res.redirect('/');
+  });
 });
 
 module.exports = router;
