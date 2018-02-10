@@ -18,6 +18,7 @@ const userSchema = new Schema({
     ref: 'Game'
   }],
   _gamesCreated: [{
+    default: [],
     type: Schema.Types.ObjectId,
     ref: 'GameCreated'
   }],

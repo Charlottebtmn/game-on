@@ -33,7 +33,18 @@ router.post('/new', ensureLoggedIn(), function (req, res, next) {
     if (err) {
       console.error(err);
     } else {
-      res.redirect('/');
+      console.log(newGame._id, "COUCOU");
+      User.findById(req.user._id, (err, user) => {
+        if (user._gamesCreated) {
+          user._gamesCreated.push(newGame._id)
+        }
+        else {
+          user._gamesCreated = [newGame._id];
+        }
+        user.save( (err) => {
+          res.redirect('/');
+        });
+      });
     }
   });
 });
