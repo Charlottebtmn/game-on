@@ -3,18 +3,38 @@
 h1,
 h2 {
   font-family: "Pacifico";
+  text-shadow: 0 0 0.1em #fff
 }
 
 h2 {
   font-size: 5rem;
 }
 
+p {
+  font-size: 18px;
+  color: #232323;
+  text-shadow: 1px 0 0.1em #fff  
+}
 h3 {
   font-size: 4rem;
 }
 
+.nav>li>a:hover,
+.nav>li>a:focus {
+  background-color: transparent
+}
+
 label {
   font-size: 4rem
+}
+
+.btn {
+  font-size: 2rem
+}
+
+.card-img-top-index {
+  height: 250px;
+  width: 250px;
 }
 
 .form-control {
@@ -24,6 +44,12 @@ label {
 body {
   padding: 50px;
   font: 16px "Josefin Sans", Helvetica, Arial, sans-serif;
+  background: #83a4d4;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #b6fbff, #83a4d4);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #b6fbff, #83a4d4);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 a {

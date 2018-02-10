@@ -22,13 +22,13 @@
     <% games.forEach((game) => { %>
       <div class="col-lg-3">
         <div class="card">
-          <img class="card-img-top" src="http://via.placeholder.com/350x150" alt="Card image cap">
+          <img class="card-img-top card-img-top-index" src="<%=game._creator.imgUrl%>" alt="Card image cap">
+
           <div class="card-body">
             <div class="progress">
               <div class="progress-bar progress-bar" style="width:<%= JSON.stringify((game._players.length / game.nbplayersmax)*100, 2, null) %>%">
               </div>
             </div>
-
             <h4 class="card-title">
               <%= game.title %>
             </h4>
@@ -47,6 +47,25 @@
         </div>
       </div>
       <%  }) %>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <h2 class="text-center">Click & Fun</h2>
+    <div class="row">
+      <div class="col-lg-3 text-center">
+        <h3>Search</h3>
+        <p>Search board games, players</p>
+      </div>
+      <div class="col-lg-3 text-center">
+        <h3>Select</h3>
+        <p>Choose your game</p>
+      </div>
+      <div class="col-lg-3 text-center">
+        <h3>Win</h3>
+        <p>Smash'em all!</p>
+      </div>
+    </div>
   </div>
 </div>
 <script>
