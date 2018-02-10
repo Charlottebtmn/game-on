@@ -1,84 +1,78 @@
 <div class="container">
   <div class="row">
-    <div class="col-lg-6">
-      <img src="<%= bginfos.img %>" alt="" style="height:250px">
+    <div class="col-lg-12">
       <h1>
         <%= game.title %>
       </h1>
-      <h2>
-        <%= game.boardgame %>
-      </h2>
-    </div>
-    <div class="col-lg-6">
-      <img src="<%= game._creator.imgUrl %>">
-      <p>Hosted by :
-
-
-        <%= game._creator.username %>
-      </p>
-    </div>
-    <div class="row">
-      <div class="col-lg-12">
-        <% if (userSignedIn) { %>
-          <form action="/games/<%= game._id %>/register" method="post">
-            <input type="submit" value="Join 'da game!" class="btn btn-primary">
-          </form>
-          <% } else { %>
-            <form action="/signup" method="post">
-              <input type="submit" value="Signup" class="btn btn-primary">
-            </form>
-            <form action="/login" method="post">
-              <input type="submit" value="login" class="btn btn-secondary">
-            </form>
-            <% } %>
+      <div class="col-lg-4">
+        <img src="<%= bginfos.img %>" alt="" style="height:250px">
+        <p>
+          <%= game.boardgame %>
+        </p>
+        <p>
+          <i class="fa fa-child"></i>
+          <%=bginfos.age%>
+        </p>
+        <p>
+          <i class="fa fa-users"></i>
+          <%=bginfos.players%>
+        </p>
+        <p>
+          <span class="glyphicon glyphicon-time"></span>
+          <%=bginfos.time%>
+        </p>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-lg-12">
-
+      <div class="col-lg-4">
         <p>
-          <i class="fa fa-child"></i><%=bginfos.age%>
+            <span class="glyphicon glyphicon-pencil"></span>
+          
+          <%= game.description %>
         </p>
         <p>
-          <i class="fa fa-users"></i><%=bginfos.players%>
+          <span class="glyphicon glyphicon-time"></span>
+          <%= game.time %>
         </p>
         <p>
-          <span class="glyphicon glyphicon-time"></span><%=bginfos.time%>
+          <span class="glyphicon glyphicon-home"></span>
+          <%= game.adress %>
         </p>
-
-
+      </div>
+      <div class="col-lg-4">
+        <img src="<%= game._creator.imgUrl %>">
+        <p>
+          Hosted by :
+          <%= game._creator.username %>
+        </p>
       </div>
     </div>
 
   </div>
-  <h2>
-    Description
-  </h2>
-  <p>
-    <%= game.description %>
-  </p>
-  <%= game.adress %>
-    <div id="map">
+  <div class="row">
+    <div class="col-lg-12 text-center">
+      <% if (userSignedIn) { %>
+        <form action="/games/<%= game._id %>/register" method="post">
+          <input type="submit" value="Join 'da game!" class="btn btn-primary">
+        </form>
+        <% } else { %>
+          <form action="/signup" method="post">
+            <input type="submit" value="Signup" class="btn btn-primary">
+          </form>
+          <form action="/login" method="post">
+            <input type="submit" value="login" class="btn btn-secondary">
+          </form>
+          <% } %>
+    </div>
+  </div>
+
+
+  <div id="map"></div>
+  <div class="row">
+    <div class="col-lg-12">
 
     </div>
-    <div>
-
-
-      <p>
-        <%= game.time %>
-      </p>
-      <h3>
-
-      </h3>
-
-    </div>
+  </div>
 </div>
 </div>
-
-<pre>
-    <%- JSON.stringify(game, null, 2) -%>
-    <%- JSON.stringify(bginfos, null, 2) -%>
-</pre>
 <script>
   window.coor = <%- JSON.stringify(game.coordinates) -%>;
 </script>
