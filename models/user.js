@@ -17,6 +17,10 @@ const userSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'Game'
   }],
+  _gamesCreated: [{
+    type: Schema.Types.ObjectId,
+    ref: 'GameCreated'
+  }],
 });
 
 const User = mongoose.model('User', userSchema);
