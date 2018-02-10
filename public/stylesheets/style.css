@@ -83,10 +83,13 @@ nav.navbar {
 }
 
 .home-heading {
-  background-color: #E3ECFA;
   height: 75vh;
   padding: 0 30%;
   position: relative;
+  background-image: url("https://tothetablereviews.files.wordpress.com/2015/01/img_0009.jpg");
+  background-size: 100%;
+  opacity: 0.5;
+
 }
 
 .home-heading-wrapper {
@@ -95,17 +98,25 @@ nav.navbar {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  color: #000000;
+  opacity :1;
 }
 
 .home-heading-wrapper>h1 {
-  font-size: 10rem;
+  font-size: 8rem;
+  color: black;
+  opacity :1;
 }
 
 .home-heading-wrapper>p {
   padding-top: 3rem;
   font-size: 3rem;
-  font-weight: 600
+  font-weight: 600;
+  color: black;
+  opacity :1;
+
 }
+
 
 .btn-logout {
   color: black;
@@ -303,4 +314,14 @@ nav.navbar {
 
 .text-center {
   margin: 50px
+}
+
+/*Profile Css*/
+.modify-information {
+  font-size: 3rem;
+}
+
+.form-size {
+  font-size: 2rem;
+
 }
